@@ -185,6 +185,7 @@ ul.errorlist {
 }
 
 .product-list .item {
+    grid-auto-flow: dense;
     width:25%;
     padding:10px 20px 10px 0;
     float:left;
@@ -208,6 +209,7 @@ ul.errorlist {
 }
 
 .product-detail img {
+
     width:40%;
     float:left;
     padding:0 20px 20px 0;

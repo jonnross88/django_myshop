@@ -31,6 +31,23 @@ class Cart:
             item["total_price"] = item["price"] * item["quantity"]
             yield item
 
+    def __len__(self):
+        """Counts the number of items in cart"""
+        return sum(item["quantity"] for item in self.cart.values())
+    
+    def get_total_price(self):
+        """
+        Sums total cost of items in cart
+        """
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+
+    def clear(self):
+        """
+        Removes cart for session
+        """
+        del self.session[settings.CART_SESSION_ID]
+        self.save()
+
     def add(self, product, quantity=1, override_quantity=False):
         """
         Add a product to the cart or update its quantity.
